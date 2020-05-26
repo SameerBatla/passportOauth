@@ -8,8 +8,9 @@ passport.use(
       clientID: keys.google.CLIENT_ID,
       clientSecret: keys.google.CLIENT_SECRET,
     },
-    () => {
+    (accessToken, refreshToken, profile, done) => {
       //safa
+      console.log(profile);
     }
   )
 );
