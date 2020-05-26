@@ -21,7 +21,6 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-
 mongoose.connect(keys.mongodb.DB_URI, {
   useUnifiedTopology: true,
   useUnifiedTopology: true,
@@ -31,10 +30,10 @@ console.log('connected too mongodb');
 
 //set up routes
 app.use('/auth', myRoutes);
-app.use('/profile',profileRoutes)
+app.use('/profile', profileRoutes);
 
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('home', { user: req.user });
 });
 
 app.listen(3000, () => console.log('listening on port 3000'));
